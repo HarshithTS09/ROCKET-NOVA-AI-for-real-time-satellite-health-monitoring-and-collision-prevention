@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-space-black text-white font-sans antialiased;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-accent-blue/30 text-accent-cyan;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar - subtle */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-space-gray;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent-blue/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-blue/50;
+  }
+}
+
+@layer components {
+  /* Glassmorphism - refined */
+  .glass-sm {
+    @apply bg-gray-800/90 backdrop-blur-sm border border-gray-700/50 rounded-xl;
+  }
+
+  .glass {
+    @apply bg-gray-800/90 backdrop-blur-md border border-gray-700/50 rounded-2xl;
+  }
+
+  .glass-lg {
+    @apply bg-gray-800/90 backdrop-blur-lg border border-gray-700/50 rounded-3xl;
+  }
+
+  /* High contrast for readability */
+  .card {
+    @apply glass p-8 transition-all duration-500 hover:bg-gray-800/95 hover:border-gray-600/50;
+  }
+
+  .text-white {
+    color: #ffffff !important;
+  }
+
+  .text-gray-300 {
+    color: #e5e7eb !important;
+  }
+
+  .text-gray-400 {
+    color: #d1d5db !important;
+  }
+
+  /* Text styles */
+  .text-gradient {
+    background: linear-gradient(90deg, #00d4ff, #ffffff, #0055ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 8s ease infinite;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-6xl font-light tracking-tight leading-none;
+  }
+
+  .section-subtitle {
+    @apply text-sm uppercase tracking-[0.3em] text-gray-500 mt-4 mb-8;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply px-8 py-4 bg-white text-black font-medium rounded-full transition-all duration-300 hover:bg-accent-cyan hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 border border-white/20 text-white font-medium rounded-full transition-all duration-300 hover:border-white/50 hover:bg-white/5;
+  }
+
+  /* Cards */
+  .card {
+    @apply glass p-8 transition-all duration-500 hover:bg-white/10 hover:border-white/20;
+  }
+
+  /* Stats */
+  .stat-number {
+    @apply text-5xl md:text-7xl font-light tracking-tight;
+  }
+
+  /* Dividers */
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  /* Glow effects */
+  .glow-sm {
+    box-shadow: 0 0 20px rgba(0, 85, 255, 0.3);
+  }
+
+  .glow-md {
+    box-shadow: 0 0 40px rgba(0, 85, 255, 0.4), 0 0 80px rgba(0, 212, 255, 0.2);
+  }
+
+  /* Orbit animation */
+  .orbit {
+    animation: orbit 20s linear infinite;
+  }
+
+  @keyframes orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Status indicators */
+  .status-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-active {
+    @apply bg-accent-green shadow-[0_0_10px_#00ff88];
+  }
+
+  .status-warning {
+    @apply bg-yellow-500 shadow-[0_0_10px_#ffaa00];
+  }
+
+  .status-critical {
+    @apply bg-red-500 shadow-[0_0_10px_#ff3333];
+  }
+}
+
+/* Background effects */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+/* Subtle grid overlay */
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient animations */
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+  animation: gradient 8s ease infinite;
+  background-size: 200% 200%;
+}
+
+/* Vignette effect */
+.vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 0%, space-black 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Custom scrollbar for panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 212, 255, 0.4);
+}
+
+/* Hidden scrollbar */
+.hidden-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hidden-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(pkill -f \"vite\")",
+      "mcp__fast-context__fast_context_search",
+      "Bash(node -c src/hooks/useTelemetry.jsx)",
+      "Bash(curl -s \"https://celestrak.org/NORAD/elements/gp.php?GROUP=last-30-days&FORMAT=json\")",
+      "Bash(npm init:*)",
+      "Bash(node src/database/init.js)",
+      "Bash(node:*)",
+      "Bash(curl -s http://localhost:3001/api/satellites)",
+      "Bash(curl -s http://localhost:3002/api/satellites)",
+      "Bash(curl:*)",
+      "Bash(jq .[0])",
+      "Bash(find . -type f -name *.py)",
+      "Bash(xargs -r kill)",
+      "Bash(pkill -f \"node.*index.js\")",
+      "Bash(pkill -f \"node.*src/server/index.js\")",
+      "Bash(kill -9 2529 2049)",
+      "Bash(python -m json.tool)",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(f''''Total returned: {len\\(data\\)}''''\\); print\\(''''First 5:'''', [s[''''id''''] for s in data[:5]]\\)\")"
+    ]
+  }
+}
